@@ -52,9 +52,9 @@ class TodoSearchManager(
       suspend fun searchTodos(query: String): List<Todo> {
             return withContext(Dispatchers.IO) {
                   val searchSpec = SearchSpec.Builder()
-                        .setSnippetCount(10)
-                        .addFilterNamespaces("my_todos")
-                        .setRankingStrategy(SearchSpec.RANKING_STRATEGY_USAGE_COUNT)
+                        .setSnippetCount(10)// 设置搜索结果的前10位
+                        .addFilterNamespaces("my_todos")// 过滤的命名空间
+                        .setRankingStrategy(SearchSpec.RANKING_STRATEGY_USAGE_COUNT) // 设置排序模式
                         .build()
 
                   val result = session?.search(

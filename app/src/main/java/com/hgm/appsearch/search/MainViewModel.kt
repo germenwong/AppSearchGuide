@@ -20,10 +20,10 @@ class MainViewModel(
 
       private var searchJob: Job? = null
 
+      // 初始完数据之后就注释掉，否则有重复数据
       init {
             viewModelScope.launch {
                   todoSearchManager.init()
-                  // 初始完数据之后就注释掉，否则有重复数据
                   val todos = (1..100).map {
                         Todo(
                               namespace = "my_todos",
